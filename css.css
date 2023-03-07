@@ -1,0 +1,39 @@
+body {
+    background-color: #e8ffff; 
+    color: #213e3b;
+}
+
+h1 {
+    color: #0f1116;
+}
+
+h3 {
+    color: #7579e7;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #010101; 
+        color: #f0ece2;
+    }
+
+    h1 {
+        color: #7579e7;
+    }
+
+    h3 {
+        color: #69779b;
+    }
+
+    img {
+        filter: brightness(0.9);
+    }
+
+    input {
+        background-color: #14274e;
+        color: beige;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+
+}

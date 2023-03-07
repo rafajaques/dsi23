@@ -9,6 +9,8 @@
             echo 'Você não está autenticado';
             break;
     }
+
+    require('css.php');
 ?>
 <form action="form_receber.php" method="post">
     <div>
