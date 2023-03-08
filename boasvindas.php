@@ -3,8 +3,7 @@
     require('verifica_autenticacao.php');
     require('css.php');
     
-    echo 'Seu login funcionou :-)';
-
+    echo 'Seu login funcionou :-)<br>';
 ?>
 <p>
     <a href="logout.php">Sair</a>
