@@ -29,6 +29,10 @@ h3 {
         filter: brightness(0.9);
     }
 
+    a{
+        color: cornflowerblue;
+    }
+
     input {
         background-color: #14274e;
         color: beige;

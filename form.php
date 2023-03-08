@@ -8,6 +8,9 @@
         case 2:
             echo 'Você não está autenticado';
             break;
+        case 3:
+            echo 'Você saiu com sucesso 👍';
+            break;
     }
 
     require('css.php');
