@@ -1,7 +1,6 @@
 <?php
     # form_receber.php
-
-    $senha_cripto = '$2y$12$7lnP9th9keIp7bTRp8b8FOqe0XeTwu12ROIs/lj.wQZS1XReC1KSm';
+    require('pdo.inc.php');
     
     // Exemplo de prática não tão boa
     // if (!isset($_POST['usuario']) || 
@@ -14,12 +13,25 @@
     $usuario = $_POST['usuario'] ?? false;
     $senha = $_POST['senha'] ?? false;
 
-    if ($usuario == 'rafael'
+    // Prepara a consulta
+    $sql = $pdo->prepare('SELECT * FROM usuarios WHERE username = ? AND active = 1');
+
+    // Anexa a variável $usuario no parâmetro 1
+    $sql->bindParam(1, $usuario, PDO::PARAM_STR);
+
+    // Roda a consulta no banco
+    $sql->execute();
+
+    // Busca os dados no banco
+    $dados = $sql->fetch(PDO::FETCH_ASSOC);
+
+    if ($sql->rowCount() == 1
         &&
-        password_verify($senha, $senha_cripto)) {
+        password_verify($senha, $dados['password'])) {
         // Autenticação OK
         session_start();
         $_SESSION['usuario'] = $usuario;
+        $_SESSION['admin'] = $dados['admin'];
 
         header('location:boasvindas.php');
         die;
