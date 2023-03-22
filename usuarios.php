@@ -1,5 +1,6 @@
 <?php
     # usuarios.php
+    require('css.php');
     require('pdo.inc.php');
 
     $sql = $pdo->query('SELECT * FROM usuarios');

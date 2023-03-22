@@ -1,0 +1,28 @@
+{# usuarios.html #}
+{% extends "_base.html" %}
+
+{% block conteudo %}
+<p>Esta é a página de usuários</p>
+
+<table border="1">
+    <tr>
+        <th>Usuário</th>
+        <th>Admin</th>
+        <th>Ativo</th>
+    </tr>
+
+    {% for usr in usuarios %}
+    <tr>
+        {# usr.username é igual a usr['username'] #}
+        <td>{{ usr.username }}</td>
+        <td>{{ usr.admin ? 'Sim' : 'Não' }}</td>
+        <td>{{ usr.active ? 'Sim' : 'Não' }}</td>
+        <td>
+            <a href="usuarios_demitir.php?id={{ usr.id }}">Demitir</a>
+        </td>
+    </tr>        
+    {% endfor %}
+
+</table>
+
+{% endblock %}
